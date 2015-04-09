@@ -2,6 +2,7 @@ package toulousemusee
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -9,12 +10,32 @@ import spock.lang.Specification
 @TestFor(Gestionnaire)
 class GestionnaireSpec extends Specification {
 
-    def setup() {
+    @Unroll
+    void "test la validite d'un gestionnaire valide"(String unNom) {
+
+        given: "un gestionnaire initialise avec un nom non vide "
+        Gestionnaire gestionnaire = new Gestionnaire(nom: unNom)
+
+        expect: "le gestionnaire  est valide"
+        gestionnaire.validate() == true
+
+        where:
+        unNom = "Durant"
+
     }
 
-    def cleanup() {
-    }
+    @Unroll
+    void "test l'invalidite d'un gestionnaire non valide"(String unNom, Object _) {
 
-    void "test something"() {
+        given: "un gestionnaire initialise avec un nom vide"
+        Gestionnaire gestionnaire = new Gestionnaire(nom: unNom)
+
+        expect: "l'activite est invalide"
+        gestionnaire.validate() == false
+
+        where:
+        unNom   | _
+        null    | _
+        ""      | _
     }
 }
