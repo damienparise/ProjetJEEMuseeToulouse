@@ -9,5 +9,7 @@ class DemandeVisite {
     String statut
 
     static constraints = {
+        nbPersonnes inList: [1,2,3,4,5,6]
+        statut      inList: ["Attente","Valider"]
     }
 }

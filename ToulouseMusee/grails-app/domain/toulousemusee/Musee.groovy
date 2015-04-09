@@ -11,6 +11,7 @@ class Musee {
     Gestionnaire gestionnaire
 
     static constraints = {
-
+        accesMetro  blank: true, nullable: true
+        accesBus    blank: true, nullable: true
     }
 }
