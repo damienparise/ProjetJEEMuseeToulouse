@@ -33,13 +33,14 @@ class DemandeVisiteSpec extends Specification {
 
         where:
         unCodeVisite | uneDateDebutPeriode    | uneDateFinPeriode       | unNbPersonne  | unStatut
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 2             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 3             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 4             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 5             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 6             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 3             | "Valider"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 2             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 3             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 4             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 5             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 6             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 3             | "Confirmée"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 3             | "Refusée"
 
 
     }
@@ -67,11 +68,11 @@ class DemandeVisiteSpec extends Specification {
 
         where:
         unCodeVisite | uneDateDebutPeriode    | uneDateFinPeriode       | unNbPersonne  | unStatut
-        ""           | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "Attente"
-        null         | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "Attente"
-        "12345"      | null                   | new Date(2015,1,1,12,0) | 1             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | null                    | 1             | "Attente"
-        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 7             | "Attente"
+        ""           | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "En cours de traitement"
+        null         | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "En cours de traitement"
+        "12345"      | null                   | new Date(2015,1,1,12,0) | 1             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | null                    | 1             | "En cours de traitement"
+        "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 7             | "En cours de traitement"
         "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | ""
         "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | "autrechose"
         "12345"      | new Date(2015,1,1,8,0) | new Date(2015,1,1,12,0) | 1             | null
