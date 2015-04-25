@@ -21,29 +21,29 @@
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<g:form>
-				<fieldset class="form">
-					<div class="fieldcontain">
-						<label for="nom">
-							Nom musée contient :
-						</label>
-						<g:textField name="nom"/>
-						<label for="codepostal">
-							Code postal:
-						</label>
-						<g:select from="${Adresse.list()}" optionValue="codePostal" optionKey="codePostal" noSelection="['':'']" name="codepostal"/>
-					</div>
-					<div class="fieldcontain">
-						<label for="nomrue">
-							Nom rue contient:
-						</label>
-						<g:textField name="nomrue"/>
-					</div>
-					<div style="float: right">
-						<g:actionSubmit action="doSearchMusees" value="Rechercher" />
-					</div>
-				</fieldset>
+								<fieldset class="form">
+									<div class="fieldcontain">
+											<label for="nom">
+													Nom musée contient :
+												</label>
+											<g:textField name="nom"/>
+											<label for="codepostal">
+													Code postal:
+												</label>
+										<g:select from="${Adresse.list()}" optionValue="codePostal" optionKey="codePostal" noSelection="['':'']" name="codepostal"/>
+										</div>
+									<div class="fieldcontain">
+											<label for="nomrue">
+													Nom rue contient:
+												</label>
+											<g:textField name="nomrue"/>
+										</div>
+									<div style="float: right">
+											<g:actionSubmit action="doSearchMusees" value="Rechercher" />
+										</div>
+								</fieldset>
 
-			</g:form>
+                			</g:form>
 			<table>
 			<thead>
 					<tr>
@@ -58,7 +58,7 @@
 					
 						<g:sortableColumn property="horairesOuverture" title="${message(code: 'musee.horairesOuverture.label', default: 'Horaires Ouverture')}" />
 					
-						<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}" />
+						<g:sortableColumn property="isPrefere" title="${message(code: 'musee.isPrefere.label', default: 'Is Prefere')}" />
 					
 					</tr>
 				</thead>
@@ -76,8 +76,8 @@
 					
 						<td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
 					
-						<td>${fieldValue(bean: museeInstance, field: "nom")}</td>
-					
+						<td><g:formatBoolean boolean="${museeInstance.isPrefere}" /></td>
+
 					</tr>
 				</g:each>
 				</tbody>

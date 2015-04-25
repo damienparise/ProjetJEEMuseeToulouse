@@ -9,6 +9,7 @@ class Musee {
     String accesBus
     Adresse adresseMusee
     Gestionnaire gestionnaire
+    Boolean isPrefere
 
     static constraints = {
         accesMetro  blank: true, nullable: true

@@ -68,6 +68,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${museeInstance?.isPrefere}">
+				<li class="fieldcontain">
+					<span id="isPrefere-label" class="property-label"><g:message code="musee.isPrefere.label" default="Is Prefere" /></span>
+					
+						<span class="property-value" aria-labelledby="isPrefere-label"><g:formatBoolean boolean="${museeInstance?.isPrefere}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${museeInstance?.nom}">
 				<li class="fieldcontain">
 					<span id="nom-label" class="property-label"><g:message code="musee.nom.label" default="Nom" /></span>

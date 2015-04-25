@@ -47,6 +47,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: museeInstance, field: 'isPrefere', 'error')} ">
+	<label for="isPrefere">
+		<g:message code="musee.isPrefere.label" default="Is Prefere" />
+		
+	</label>
+	<g:checkBox name="isPrefere" value="${museeInstance?.isPrefere}" />
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: museeInstance, field: 'nom', 'error')} required">
 	<label for="nom">
 		<g:message code="musee.nom.label" default="Nom" />
