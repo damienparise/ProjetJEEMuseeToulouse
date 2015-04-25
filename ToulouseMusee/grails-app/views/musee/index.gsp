@@ -1,5 +1,5 @@
 
-<%@ page import="toulousemusee.Musee" %>
+<%@ page import="toulousemusee.Adresse; toulousemusee.Musee" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,7 +30,7 @@
 						<label for="codepostal">
 							Code postal:
 						</label>
-						<g:textField name="codepostal"/>
+						<g:select from="${Adresse.list()}" optionValue="codePostal" optionKey="codePostal" noSelection="['':'']" name="codepostal"/>
 					</div>
 					<div class="fieldcontain">
 						<label for="nomrue">
