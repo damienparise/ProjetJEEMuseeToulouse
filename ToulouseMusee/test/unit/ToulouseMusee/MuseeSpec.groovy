@@ -18,7 +18,8 @@ class MuseeSpec extends Specification {
             String unAccesMetro,
             String unAccesBus,
             Adresse uneAdresse,
-            Gestionnaire unGestionnaire) {
+            Gestionnaire unGestionnaire,
+            Boolean unIsPrefere) {
 
         given: "un musee initialise avec " +
                 "un nom, " +
@@ -27,6 +28,7 @@ class MuseeSpec extends Specification {
                 "un acces metro, " +
                 "un acces bus, " +
                 "une adresse et " +
+                "un favoris et " +
                 "un gestionnaire le tout non vide"
         Musee musee = new Musee(
                 nom: unNom,
@@ -35,19 +37,20 @@ class MuseeSpec extends Specification {
                 accesMetro: unAccesMetro,
                 accesBus: unAccesBus,
                 adresseMusee: uneAdresse,
-                gestionnaire: unGestionnaire
+                gestionnaire: unGestionnaire,
+                isPrefere: unIsPrefere
         )
 
         expect: "le musee est valide"
         musee.validate() == true
 
         where:
-        unNom   | uneHoraireOuverture   | unTelephone | unAccesMetro | unAccesBus   | uneAdresse    | unGestionnaire
-        "Musee" | "8h"                  | "0512345678"| "SortieM 10" | "SortieB 20" | new Adresse() | new Gestionnaire()
-        "Musee" | "8h"                  | "0512345678"| ""           | "SortieB 20" | new Adresse() | new Gestionnaire()
-        "Musee" | "8h"                  | "0512345678"| null         | "SortieB 20" | new Adresse() | new Gestionnaire()
-        "Musee" | "8h"                  | "0512345678"| "SortieM 10" | ""           | new Adresse() | new Gestionnaire()
-        "Musee" | "8h"                  | "0512345678"| "SortieM 10" | null         | new Adresse() | new Gestionnaire()
+        unNom   | uneHoraireOuverture   | unTelephone | unAccesMetro | unAccesBus   | uneAdresse    | unGestionnaire    | unIsPrefere
+        "Musee" | "8h"                  | "0512345678"| "SortieM 10" | "SortieB 20" | new Adresse() | new Gestionnaire()| false
+        "Musee" | "8h"                  | "0512345678"| ""           | "SortieB 20" | new Adresse() | new Gestionnaire()| false
+        "Musee" | "8h"                  | "0512345678"| null         | "SortieB 20" | new Adresse() | new Gestionnaire()| false
+        "Musee" | "8h"                  | "0512345678"| "SortieM 10" | ""           | new Adresse() | new Gestionnaire()| false
+        "Musee" | "8h"                  | "0512345678"| "SortieM 10" | null         | new Adresse() | new Gestionnaire()| false
 
     }
 
