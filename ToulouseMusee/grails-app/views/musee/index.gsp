@@ -20,6 +20,30 @@
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
 			</g:if>
+			<g:form>
+				<fieldset class="form">
+					<div class="fieldcontain">
+						<label for="nom">
+							Nom musée contient :
+						</label>
+						<g:textField name="nom"/>
+						<label for="codepostal">
+							Code postal:
+						</label>
+						<g:textField name="codepostal"/>
+					</div>
+					<div class="fieldcontain">
+						<label for="nomrue">
+							Nom rue contient:
+						</label>
+						<g:textField name="nomrue"/>
+					</div>
+					<div style="float: right">
+						<g:actionSubmit action="doSearchMusees" value="Rechercher" />
+					</div>
+				</fieldset>
+
+			</g:form>
 			<table>
 			<thead>
 					<tr>

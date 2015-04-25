@@ -14,4 +14,9 @@ class Musee {
         accesMetro  blank: true, nullable: true
         accesBus    blank: true, nullable: true
     }
+
+    static mapping = {
+        gestionnaire fetch: 'join'
+        adresseMusee fetch: 'join'
+    }
 }
