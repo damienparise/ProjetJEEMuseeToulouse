@@ -25,7 +25,7 @@
 									<div class="fieldcontain">
 											<label for="nom">
 													Nom musée contient :
-												</label>
+											</label>
 											<g:textField name="nom"/>
 											<label for="codepostal">
 													Code postal:
@@ -47,7 +47,9 @@
 			<table>
 			<thead>
 					<tr>
-					
+
+						<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}" />
+
 						<g:sortableColumn property="accesMetro" title="${message(code: 'musee.accesMetro.label', default: 'Acces Metro')}" />
 					
 						<g:sortableColumn property="accesBus" title="${message(code: 'musee.accesBus.label', default: 'Acces Bus')}" />
@@ -57,30 +59,66 @@
 						<th><g:message code="musee.gestionnaire.label" default="Gestionnaire" /></th>
 					
 						<g:sortableColumn property="horairesOuverture" title="${message(code: 'musee.horairesOuverture.label', default: 'Horaires Ouverture')}" />
-					
-						<g:sortableColumn property="isPrefere" title="${message(code: 'musee.isPrefere.label', default: 'Is Prefere')}" />
+
+
+						<g:sortableColumn property="isPrefere" title="${message(code: 'musee.isPrefere.label', default: 'Favoris')}" />
 					
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${museeInstanceList}" status="i" var="museeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
+
+						<td>${fieldValue(bean: museeInstance, field: "nom")}</td>
+
 						<td><g:link action="show" id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "accesMetro")}</g:link></td>
-					
+
 						<td>${fieldValue(bean: museeInstance, field: "accesBus")}</td>
 					
 						<td>${fieldValue(bean: museeInstance, field: "adresseMusee")}</td>
 					
 						<td>${fieldValue(bean: museeInstance, field: "gestionnaire")}</td>
-					
+
 						<td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
+
 					
-						<td><g:formatBoolean boolean="${museeInstance.isPrefere}" /></td>
+						<td><g:form>
+							<label for="idmusee" >
+
+							</label>
+							<g:actionSubmit action="doAddFavoris" value="${museeInstance.id}" name="idmusee"/>
+
+							<g:actionSubmit onclick="return confirm('Are you sure? ${museeInstance.id}?????????????')" value="Ajouter" name="${museeInstance}"/>
+						</g:form></td>
 
 					</tr>
 				</g:each>
 				</tbody>
+			</table>
+			<table>
+				<h1>Liste musee prefere</h1>
+				<thead>
+					<tr>
+						<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}" />
+						<g:sortableColumn property="favoris" title="${message(code: 'musee.nom.label', default: 'Favoris')}" />
+					</tr>
+				</thead><tbody>
+			<g:each in="${museeInstanceList}" status="i" var="museeInstance">
+				<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					<g:if test="${museeInstance.isPrefere == true}">
+						<td>${fieldValue(bean: museeInstance, field: "nom")}</td>
+
+						<td><g:form>
+							<g:actionSubmit action="doAddFavoris" value="Supprimer" />
+						</g:form></td>
+					</g:if>
+
+
+
+				</tr>
+			</g:each>
+			</tbody>
+
 			</table>
 			<div class="pagination">
 				<g:paginate total="${museeInstanceCount ?: 0}" />
