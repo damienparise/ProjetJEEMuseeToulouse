@@ -1,6 +1,11 @@
+import toulousemusee.JeuTestService
+
 class BootStrap {
 
-    def init = { servletContext ->
+    JeuTestService jeuTestService
+
+    def init = {
+
     }
     def destroy = {
     }
