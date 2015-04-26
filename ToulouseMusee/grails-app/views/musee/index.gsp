@@ -93,7 +93,7 @@
 				</tbody>
 			</table>
 			<table>
-				<h1>Liste musées préférés</h1>
+				<h1>Mes musées préférés</h1>
 				<thead>
 					<tr>
 						<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}" />

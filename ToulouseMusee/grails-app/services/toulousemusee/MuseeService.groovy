@@ -18,12 +18,12 @@ class MuseeService {
     }
 
 
-    def deleteMusee(Musee unMusee) {
-        if (unMusee){
-            unMusee.gestionnaire.removeFromMusees(unMusee)
-            unMusee.delete()
-        }
-    }
+//    def deleteMusee(Musee unMusee) {
+//        if (unMusee){
+//            unMusee.gestionnaire.removeFromMusees(unMusee)
+//            unMusee.delete()
+//        }
+//    }
 
     List<Musee> searchMusees(String sousNom, String cp, String sousRue) {
         def musee = Musee.createCriteria()
