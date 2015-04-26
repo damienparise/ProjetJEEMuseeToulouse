@@ -18,6 +18,7 @@ class MuseeController {
 
     def doRemoveFavoris(){
         def museesSup = museeService.removeFavoris(params.id)
+        render (view: 'index', model: [museeInstanceList: museesSup, museeInstanceCount: museesSup.size()])
         redirect (view: 'index', model: [museeInstanceList: museesSup, museeInstanceCount: museesSup.size()])
     }
 

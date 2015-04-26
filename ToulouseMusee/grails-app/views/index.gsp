@@ -171,7 +171,7 @@
             <g:if test="${museeInstance.isPrefere == true}">
                 <td>${fieldValue(bean: museeInstance, field: "nom")}</td>
 
-                <td><g:form id="${museeInstance.id}">
+                <td><g:form id="${museeInstance.id}" controller="musee">
                     <g:actionSubmit action="doRemoveFavoris" value="Supprimer &#10 de ma liste de musée"/>
                     <g:actionSubmit action="doDemandeVisite" value="Effectuer &#10 une demande de visite"/>
                 </g:form></td>
