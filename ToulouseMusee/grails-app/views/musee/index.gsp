@@ -85,7 +85,7 @@
 
 							<td>
 								<g:form id="${museeInstance.id}">
-									<g:actionSubmit action="doAddFavoris" value="Ajouter à la liste des musées" title="Ajouter à la liste des musées"></g:actionSubmit>
+									<g:actionSubmit action="doAddFavoris" value="Ajouter à la liste des musées" title="Ajouter &#10 à la liste des musées"></g:actionSubmit>
 								</g:form>
 							</td>
 
@@ -109,7 +109,8 @@
 						<td>${fieldValue(bean: museeInstance, field: "nom")}</td>
 
 						<td><g:form id="${museeInstance.id}">
-							<g:actionSubmit action="doRemoveFavoris" value="Supprimer" />
+							<g:actionSubmit action="doRemoveFavoris" value="Supprimer &#10 de ma liste de musée" />
+							<g:actionSubmit action="doDemandeVisite" value="Effectuer &#10 une demande de visite" />
 						</g:form></td>
 					</g:if>
 
