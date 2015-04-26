@@ -12,19 +12,24 @@ class MuseeController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def doAddFavoris(){
-        def musees = museeService.addFavoris(params.id)
-        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: 5])
+        def museesfav = museeService.addFavoris(params.id)
+        redirect (view: 'index', model: [museeInstanceList: museesfav, museeInstanceCount: museesfav.size()])
     }
 
     def doRemoveFavoris(){
-        def musees = museeService.removeFavoris(params.id)
-        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: 5])
+        def museesSup = museeService.removeFavoris(params.id)
+        redirect (view: 'index', model: [museeInstanceList: museesSup, museeInstanceCount: museesSup.size()])
     }
 
     def doSearchMusees(){
         def museeList = museeService.searchMusees(params.nom,params.codepostal, params.nomrue)
-        render(view: 'index', model: [museeInstanceList: museeList, museeInstanceCount: 5])
+        render (view: 'index', model: [museeInstanceList: museeList, museeInstanceCount: museeList.size()])
     }
+
+//    def doSearchMuseesForAccueil(){
+//        def museeList = museeService.searchMusees(params.nom,params.codepostal, params.nomrue)
+//        render (view: 'index', model: [museeInstanceList: museeList, museeInstanceCount: museeList.size()])
+//    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 5, 100)

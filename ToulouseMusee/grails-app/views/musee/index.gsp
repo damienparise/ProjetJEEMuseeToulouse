@@ -58,6 +58,9 @@
 
             <g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}"/>
 
+            <g:sortableColumn property="telephone"
+                              title="${message(code: 'musee.telephone.label', default: 'Telephone')}"/>
+
             <g:sortableColumn property="accesMetro"
                               title="${message(code: 'musee.accesMetro.label', default: 'Acces Metro')}"/>
 
@@ -66,10 +69,10 @@
 
             <th><g:message code="musee.adresseMusee.label" default="Adresse Musee"/></th>
 
-            <th><g:message code="musee.gestionnaire.label" default="Gestionnaire"/></th>
-
             <g:sortableColumn property="horairesOuverture"
                               title="${message(code: 'musee.horairesOuverture.label', default: 'Horaires Ouverture')}"/>
+
+            <th><g:message code="musee.gestionnaire.label" default="Gestionnaire"/></th>
 
 
             <g:sortableColumn property="isPrefere"
@@ -84,21 +87,24 @@
                 <td><g:link action="show"
                             id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
 
+                <td>${fieldValue(bean: museeInstance, field: "telephone")}</td>
+
                 <td>${fieldValue(bean: museeInstance, field: "accesMetro")}</td>
 
                 <td>${fieldValue(bean: museeInstance, field: "accesBus")}</td>
 
                 <td>${fieldValue(bean: museeInstance, field: "adresseMusee")}</td>
 
-                <td>${fieldValue(bean: museeInstance, field: "gestionnaire")}</td>
-
                 <td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
+
+                <td>${fieldValue(bean: museeInstance, field: "gestionnaire")}</td>
 
 
                 <td>
                     <g:form id="${museeInstance.id}">
+
                         <g:actionSubmit action="doAddFavoris" value="Ajouter &#10 à la liste des musées"
-                                        title="Ajouter à la liste des musées"></g:actionSubmit>
+                                        title="Ajouter à la liste des musées" disabled="${museeInstance.isPrefere}"></g:actionSubmit>
                     </g:form>
                 </td>
 
@@ -108,19 +114,20 @@
     </table>
 </div>
 
-
 <div class="pagination">
     <g:paginate max="5" total="${museeInstanceCount ?: 0}" name=""/>
 </div>
-
+<g:if test="${toulousemusee.Musee.list().isPrefere.contains(true) == true}">
 <div id="encart" style="float: right; right: 2%; top: 30%; font-size: 80%;">
 
     <table>
         <h1>Mes musées préférés</h1>
         <thead>
         <tr>
-            <g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}"/>
-            <g:sortableColumn property="favoris" title="${message(code: 'musee.nom.label', default: 'Favoris')}"/>
+            %{--<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}"/>--}%
+            %{--<g:sortableColumn property="favoris" title="${message(code: 'musee.nom.label', default: 'Favoris')}"/>--}%
+            <th>Nom</th>
+            <th>Actions</th>
         </tr>
         </thead><tbody>
     <g:each in="${Musee.findAll()}" status="i" var="museeInstance">
@@ -130,8 +137,6 @@
 
                 <td><g:form id="${museeInstance.id}">
                     <g:actionSubmit action="doRemoveFavoris" value="Supprimer &#10 de ma liste de musée"/>
-                </g:form></td>
-                <td><g:form controller="demandeVisiteMusee">
                     <g:actionSubmit action="doDemandeVisite" value="Effectuer &#10 une demande de visite"/>
                 </g:form></td>
             </g:if>
@@ -141,6 +146,6 @@
     </tbody>
     </table>
 </div>
-
+</g:if>
 </body>
 </html>
