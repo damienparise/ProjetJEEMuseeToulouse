@@ -13,12 +13,12 @@ class MuseeController {
 
     def doAddFavoris(){
         def musees = museeService.addFavoris(params.id)
-        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: musees.size()])
+        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: 5])
     }
 
     def doRemoveFavoris(){
         def musees = museeService.removeFavoris(params.id)
-        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: musees.size()])
+        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: 5])
     }
 
     def doSearchMusees(){
@@ -27,7 +27,7 @@ class MuseeController {
     }
 
     def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
+        params.max = Math.min(max ?: 5, 100)
         respond Musee.list(params), model: [museeInstanceCount: Musee.count()]
     }
 

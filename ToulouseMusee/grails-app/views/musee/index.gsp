@@ -62,16 +62,16 @@
 
 
 						<g:sortableColumn property="isPrefere" title="${message(code: 'musee.isPrefere.label', default: 'Favoris')}" />
-					
+
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${museeInstanceList}" status="i" var="museeInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-						<td>${fieldValue(bean: museeInstance, field: "nom")}</td>
+						<td><g:link action="show" id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
 
-						<td><g:link action="show" id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "accesMetro")}</g:link></td>
+						<td>${fieldValue(bean: museeInstance, field: "accesMetro")}</td>
 
 						<td>${fieldValue(bean: museeInstance, field: "accesBus")}</td>
 					
@@ -82,9 +82,11 @@
 						<td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
 
 					
-						<td><g:form id="${museeInstance.id}">
-							<g:actionSubmit action="doAddFavoris" value="Ajouter"/>
-						</g:form></td>
+						<td>
+							<g:form id="${museeInstance.id}">
+								<g:actionSubmit action="doAddFavoris" value="Ajouter à la liste des musées" title="Ajouter à la liste des musées"></g:actionSubmit>
+							</g:form>
+						</td>
 
 					</tr>
 				</g:each>
@@ -116,7 +118,7 @@
 
 			</table>
 			<div class="pagination">
-				<g:paginate total="${museeInstanceCount ?: 0}" />
+				<g:paginate max="5" total="${museeInstanceCount ?: 0}" name="" />
 			</div>
 		</div>
 	</body>
