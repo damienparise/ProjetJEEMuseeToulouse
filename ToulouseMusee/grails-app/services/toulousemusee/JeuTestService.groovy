@@ -47,6 +47,7 @@ class JeuTestService {
         musee3 = museeService.insertOrUpdateMusee(new Musee(nom: "ENSEMBLE CONVENTUEL DES JACOBINS", horairesOuverture: "Ouvert tous les jours de 9h Ã  19h.", telephone: "05 61 22 21 92", accesMetro: "Esquirol, Capitole (A)", accesBus: "NCV, 2, 10, 12, 14, 38, 78, 80", isPrefere: false), adresse3, gestionnaire1)
         musee4 = museeService.insertOrUpdateMusee(new Musee(nom: "ENSEMBLE CONVENTUEL DES JACOBINS", horairesOuverture: "Ouvert le premier vendredi de chaque mois de 18h Ã  20h.", telephone:"05 61 36 81 12" , accesMetro: "Carmes (B)", accesBus:"2, 38", isPrefere: false), adresse4, gestionnaire3)
         musee5 = museeService.insertOrUpdateMusee(new Musee(nom: "INSTITUT CATHOLIQUE DE TOULOUSE - ESPACE MUSEOGRAPHIQUE BACCRABERE - SALLE TOLOSA", horairesOuverture: "Ouvert le lundi et le mercredi de 14h Ã  17h et le mardi de 9h Ã  12h", telephone: "05 61 93 93 57" , accesMetro: "", accesBus: "15", isPrefere: false), adresse5, gestionnaire4)
+
         //musee1 = museeService.insertOrUpdateMusee(new Musee(nom: , horairesOuverture: , telephone: , accesMetro: , accesBus: ,adresseMusee: ),gestionnaire1)
 
     }

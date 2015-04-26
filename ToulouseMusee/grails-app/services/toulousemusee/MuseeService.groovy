@@ -11,6 +11,7 @@ class MuseeService {
         musee
     }
 
+
     def deleteMusee(Musee musee) {
         if (musee){
             musee.gestionnaire.removeFromMusees(musee)
@@ -39,5 +40,18 @@ class MuseeService {
             join 'musee.gestionnaire'
         }
         results
+    }
+
+//    Musee addFavoris(Musee musee){
+//        musee.isPrefere = true
+//        musee.save(flush: true)
+//        musee
+//    }
+
+    Musee addFavoris(long id){
+        Musee musee = Musee.findById(id)
+        musee.isPrefere = true
+        musee.save(flush: true)
+        musee
     }
 }

@@ -13,6 +13,14 @@ class MuseeControllerSpec extends Specification {
         assert params != null
         // TODO: Populate valid properties like...
         //params["name"] = 'someValidName'
+        params["nom"]="nom"
+        params["horairesOuverture"]="ouverture"
+        params["telephone"]="05050505"
+        params["accesMetro"]="acces metro"
+        params["accesBus"]="acces bus"
+        params["adresseMusee"]=Mock(Adresse)
+        params["gestionnaire"]=Mock(Gestionnaire)
+        params["isPrefere"]=false
     }
 
     void "Test the index action returns the correct model"() {
