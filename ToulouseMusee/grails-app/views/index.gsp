@@ -144,11 +144,11 @@
 						</div>
 					</fieldset>
 				</g:form>
-				%{--<ul>--}%
-					%{--<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">--}%
-						%{--<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.logicalPropertyName}</g:link></li>--}%
-					%{--</g:each>--}%
-				%{--</ul>--}%
+				<ul>
+					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
+						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.logicalPropertyName}</g:link></li>
+					</g:each>
+				</ul>
 			</div>
 		</div>
 	</body>
