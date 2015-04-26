@@ -44,6 +44,7 @@
 								</fieldset>
 
                 			</g:form>
+
 			<table>
 			<thead>
 					<tr>
@@ -51,11 +52,11 @@
 						<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}" />
 
 						<g:sortableColumn property="accesMetro" title="${message(code: 'musee.accesMetro.label', default: 'Acces Metro')}" />
-					
+
 						<g:sortableColumn property="accesBus" title="${message(code: 'musee.accesBus.label', default: 'Acces Bus')}" />
-					
+
 						<th><g:message code="musee.adresseMusee.label" default="Adresse Musee" /></th>
-					
+
 						<th><g:message code="musee.gestionnaire.label" default="Gestionnaire" /></th>
 					
 						<g:sortableColumn property="horairesOuverture" title="${message(code: 'musee.horairesOuverture.label', default: 'Horaires Ouverture')}" />
@@ -66,32 +67,34 @@
 					</tr>
 				</thead>
 				<tbody>
-				<g:each in="${museeInstanceList}" status="i" var="museeInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+					<g:each in="${museeInstanceList}" status="i" var="museeInstance">
+						<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-						<td><g:link action="show" id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
+							<td><g:link action="show" id="${museeInstance.id}">${fieldValue(bean: museeInstance, field: "nom")}</g:link></td>
 
-						<td>${fieldValue(bean: museeInstance, field: "accesMetro")}</td>
+							<td>${fieldValue(bean: museeInstance, field: "accesMetro")}</td>
 
-						<td>${fieldValue(bean: museeInstance, field: "accesBus")}</td>
-					
-						<td>${fieldValue(bean: museeInstance, field: "adresseMusee")}</td>
-					
-						<td>${fieldValue(bean: museeInstance, field: "gestionnaire")}</td>
+							<td>${fieldValue(bean: museeInstance, field: "accesBus")}</td>
 
-						<td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
+							<td>${fieldValue(bean: museeInstance, field: "adresseMusee")}</td>
 
-					
-						<td>
-							<g:form id="${museeInstance.id}">
-								<g:actionSubmit action="doAddFavoris" value="Ajouter à la liste des musées" title="Ajouter à la liste des musées"></g:actionSubmit>
-							</g:form>
-						</td>
+							<td>${fieldValue(bean: museeInstance, field: "gestionnaire")}</td>
 
-					</tr>
-				</g:each>
+							<td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
+
+
+							<td>
+								<g:form id="${museeInstance.id}">
+									<g:actionSubmit action="doAddFavoris" value="Ajouter à la liste des musées" title="Ajouter à la liste des musées"></g:actionSubmit>
+								</g:form>
+							</td>
+
+						</tr>
+					</g:each>
 				</tbody>
-			</table>
+			</table></div>
+	<div id="encart" style="float: right; right: 2%; top: 30%; font-size: 80%;">
+
 			<table>
 				<h1>Mes musées préférés</h1>
 				<thead>
@@ -117,9 +120,9 @@
 			</tbody>
 
 			</table>
-			<div class="pagination">
+	</div><div class="pagination">
 				<g:paginate max="5" total="${museeInstanceCount ?: 0}" name="" />
 			</div>
-		</div>
+		
 	</body>
 </html>
