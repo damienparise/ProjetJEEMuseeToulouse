@@ -26,6 +26,11 @@ class MuseeController {
         render(view: 'index', model: [museeInstanceList: museeList, museeInstanceCount: museeList.size()])
     }
 
+    def doSearchMuseesFromAccueil(){
+        def museeList = museeService.searchMusees(params.nom,params.codepostal, params.nomrue)
+        redirect(controller: "musee", action: doSearchMusees() )
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Musee.list(params), model: [museeInstanceCount: Musee.count()]

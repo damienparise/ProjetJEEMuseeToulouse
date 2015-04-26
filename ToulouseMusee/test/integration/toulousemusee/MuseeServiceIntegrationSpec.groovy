@@ -35,23 +35,23 @@ class MuseeServiceIntegrationSpec extends IntegrationSpec {
         unGestionnaire.musees.contains(resultMusee)
     }
 
-    void "test de la suppression d'un musée"(){
-        given: "un musée existant en base"
-        Adresse adresse = new Adresse(numero: "2", rue: "Rue des archives", codePostal: "31500", ville: "Toulouse")
-        Musee unMusee = new Musee(nom:"ARCHIVES MUNICIPALES TOULOUSE" , horairesOuverture: "Ouvert du lundi au vendredi de 9h à  17h. Fermeture de 12h à 13h30 pendant toutes les vacances scolaires. Fermeture annuelle la dernière quinzaine de juillet.",
-                telephone: "05 61 61 63 33" , accesMetro: "Roseraie (A)", accesBus: "36, 38", adresseMusee: adresse, isPrefere: false)
-        Gestionnaire unGestionnaire = new Gestionnaire(nom: "Mairie de Toulouse - DGA Culture")
-        unMusee = museeService.insertOrUpdateMusee(unMusee, adresse, unGestionnaire)
-
-        when: "on tente de supprimer le musée"
-        museeService.deleteMusee(unMusee)
-
-        then: "le musée n'existe plus en base"
-        Musee.findById(unMusee.id) == null
-
-        and: "le gestionnaire est toujours dans la base"
-        Gestionnaire.findById(unGestionnaire.id) != null
-    }
+//    void "test de la suppression d'un musée"(){
+//        given: "un musée existant en base"
+//        Adresse adresse = new Adresse(numero: "2", rue: "Rue des archives", codePostal: "31500", ville: "Toulouse")
+//        Musee unMusee = new Musee(nom:"ARCHIVES MUNICIPALES TOULOUSE" , horairesOuverture: "Ouvert du lundi au vendredi de 9h à  17h. Fermeture de 12h à 13h30 pendant toutes les vacances scolaires. Fermeture annuelle la dernière quinzaine de juillet.",
+//                telephone: "05 61 61 63 33" , accesMetro: "Roseraie (A)", accesBus: "36, 38", adresseMusee: adresse, isPrefere: false)
+//        Gestionnaire unGestionnaire = new Gestionnaire(nom: "Mairie de Toulouse - DGA Culture")
+//        unMusee = museeService.insertOrUpdateMusee(unMusee, adresse, unGestionnaire)
+//
+//        when: "on tente de supprimer le musée"
+//        museeService.deleteMusee(unMusee)
+//
+//        then: "le musée n'existe plus en base"
+//        Musee.findById(unMusee.id) == null
+//
+//        and: "le gestionnaire est toujours dans la base"
+//        Gestionnaire.findById(unGestionnaire.id) != null
+//    }
 
     void "test du moteur de recherche sur les musées"(){
 

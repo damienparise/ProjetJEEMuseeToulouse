@@ -71,7 +71,7 @@ class JeuTestService {
         musee2 = museeService.insertOrUpdateMusee(
                 new Musee(
                         nom: "CMAV - CENTRE MERIDIONAL DE L'ARCHITECTURE DE LA VILLE",
-                        horairesOuverture: "Ouvert du mardi au samedi de 13h à  19hfermé les dimanches, jours fériés et du 1er au 15 aoüt",
+                        horairesOuverture: "Ouvert du mardi au samedi de 13h à  19h fermé les dimanches, jours fériés et du 1er au 15 aoüt",
                         telephone: "05 61 23 30 49",
                         accesMetro: "Capitole (A), Jean Jaurès (B)",
                         accesBus: "ncv, 2, 10, 12, 14, 38, 78 et 80",
@@ -92,7 +92,7 @@ class JeuTestService {
                         isPrefere: false), adresse4, gestionnaire3)
         musee5 = museeService.insertOrUpdateMusee(
                 new Musee(nom: "L'AEROTHEQUE",
-                        horairesOuverture: "Ouvert le lundi et le mercredi de 14h Ã  17h et le mardi de 9h à  12h",
+                        horairesOuverture: "Ouvert le lundi et le mercredi de 14h à  17h et le mardi de 9h à  12h",
                         telephone: "05 61 93 93 57" ,
                         accesMetro: "",
                         accesBus: "15",
