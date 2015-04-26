@@ -82,11 +82,8 @@
 						<td>${fieldValue(bean: museeInstance, field: "horairesOuverture")}</td>
 
 					
-						<td><g:form>
-							<label for="idmusee" >
-
-							</label>
-							<g:actionSubmit action="doAddFavoris" value="${museeInstance.id}" name="idmusee"/>
+						<td><g:form id="${museeInstance.id}">
+							<g:actionSubmit action="doAddFavoris" value="Ajouter" name="idmusee"/>
 
 							<g:actionSubmit onclick="return confirm('Are you sure? ${museeInstance.id}?????????????')" value="Ajouter" name="${museeInstance}"/>
 						</g:form></td>

@@ -11,9 +11,9 @@ class MuseeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def doAddFavoris(long museeId){
-        def musee = museeService.addFavoris(museeId)
-        render (view: 'index', model: [museeInstanceList: musee, museeInstanceCount: museeList.size()])
+    def doAddFavoris(){
+        def musee = museeService.addFavoris(params.id)
+        render (view: 'index', model: [museeInstance: musee])
     }
     def doSearchMusees(){
         def museeList = museeService.searchMusees(params.nom,params.codepostal, params.nomrue)

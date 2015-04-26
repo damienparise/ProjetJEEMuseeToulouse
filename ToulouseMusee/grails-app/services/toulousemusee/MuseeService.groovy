@@ -5,17 +5,23 @@ import grails.transaction.Transactional
 @Transactional
 class MuseeService {
 
-    Musee insertOrUpdateMusee(Musee musee, Adresse adresse, Gestionnaire gestionnaire){
-        gestionnaire.addToMusees(musee)
-        gestionnaire.save(flush: true)
-        musee
+    Musee insertOrUpdateMuseeWithAdresse(Musee unMusee, Adresse uneAdresse){
+        unMusee.adresseMusee  = uneAdresse
+        unMusee.save(flush: true)
+    }
+
+    Musee insertOrUpdateMusee(Musee unMusee, Adresse uneAdresse, Gestionnaire unGestionnaire){
+        insertOrUpdateMuseeWithAdresse(unMusee, uneAdresse)
+        unGestionnaire.addToMusees(unMusee)
+        unGestionnaire.save(flush: true)
+        unMusee
     }
 
 
-    def deleteMusee(Musee musee) {
-        if (musee){
-            musee.gestionnaire.removeFromMusees(musee)
-            musee.delete()
+    def deleteMusee(Musee unMusee) {
+        if (unMusee){
+            unMusee.gestionnaire.removeFromMusees(unMusee)
+            unMusee.delete()
         }
     }
 
@@ -36,22 +42,22 @@ class MuseeService {
                 }
             }
             /*ordonner????*/
-            join 'musee.adresse'
-            join 'musee.gestionnaire'
+            join 'unMusee.adresse'
+            join 'unMusee.gestionnaire'
         }
         results
     }
 
-//    Musee addFavoris(Musee musee){
-//        musee.isPrefere = true
-//        musee.save(flush: true)
-//        musee
+//    Musee addFavoris(Musee unMusee){
+//        unMusee.isPrefere = true
+//        unMusee.save(flush: true)
+//        unMusee
 //    }
 
-    Musee addFavoris(long id){
-        Musee musee = Musee.findById(id)
+    List<Musee> addFavoris(String id){
+        Musee musee = Musee.findById(Long.parseLong(id))
         musee.isPrefere = true
         musee.save(flush: true)
-        musee
+        Musee.findAll()
     }
 }
