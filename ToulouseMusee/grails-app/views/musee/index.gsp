@@ -23,7 +23,7 @@
 			<g:form>
 								<fieldset class="form">
 									<div class="fieldcontain">
-											<label for="nom">
+											<label>
 													Nom musée contient :
 											</label>
 											<g:textField name="nom"/>
@@ -83,9 +83,7 @@
 
 					
 						<td><g:form id="${museeInstance.id}">
-							<g:actionSubmit action="doAddFavoris" value="Ajouter" name="idmusee"/>
-
-							<g:actionSubmit onclick="return confirm('Are you sure? ${museeInstance.id}?????????????')" value="Ajouter" name="${museeInstance}"/>
+							<g:actionSubmit action="doAddFavoris" value="Ajouter"/>
 						</g:form></td>
 
 					</tr>
@@ -93,7 +91,7 @@
 				</tbody>
 			</table>
 			<table>
-				<h1>Liste musee prefere</h1>
+				<h1>Liste musées préférés</h1>
 				<thead>
 					<tr>
 						<g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}" />
@@ -105,8 +103,8 @@
 					<g:if test="${museeInstance.isPrefere == true}">
 						<td>${fieldValue(bean: museeInstance, field: "nom")}</td>
 
-						<td><g:form>
-							<g:actionSubmit action="doAddFavoris" value="Supprimer" />
+						<td><g:form id="${museeInstance.id}">
+							<g:actionSubmit action="doRemoveFavoris" value="Supprimer" />
 						</g:form></td>
 					</g:if>
 

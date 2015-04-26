@@ -47,16 +47,18 @@ class MuseeService {
         }
         results
     }
-
-//    Musee addFavoris(Musee unMusee){
-//        unMusee.isPrefere = true
-//        unMusee.save(flush: true)
-//        unMusee
-//    }
-
+    
     List<Musee> addFavoris(String id){
         Musee musee = Musee.findById(Long.parseLong(id))
         musee.isPrefere = true
+        musee.save(flush: true)
+        Musee.findAll()
+    }
+
+
+    List<Musee> removeFavoris(String id){
+        Musee musee = Musee.findById(Long.parseLong(id))
+        musee.isPrefere = false
         musee.save(flush: true)
         Musee.findAll()
     }
