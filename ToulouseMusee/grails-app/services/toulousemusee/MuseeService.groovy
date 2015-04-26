@@ -47,7 +47,7 @@ class MuseeService {
         }
         results
     }
-    
+
     List<Musee> addFavoris(String id){
         Musee musee = Musee.findById(Long.parseLong(id))
         musee.isPrefere = true
