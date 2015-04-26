@@ -75,7 +75,7 @@ class JeuTestService {
                         telephone: "05 61 23 30 49",
                         accesMetro: "Capitole (A), Jean Jaurès (B)",
                         accesBus: "ncv, 2, 10, 12, 14, 38, 78 et 80",
-                        isPrefere: false), adresse2, gestionnaire2)
+                        isPrefere: true), adresse2, gestionnaire2)
         musee3 = museeService.insertOrUpdateMusee(
                 new Musee(nom: "ENSEMBLE CONVENTUEL DES JACOBINS",
                         horairesOuverture: "Ouvert tous les jours de 9h à  19h.",
@@ -96,7 +96,7 @@ class JeuTestService {
                         telephone: "05 61 93 93 57" ,
                         accesMetro: "",
                         accesBus: "15",
-                        isPrefere: false), adresse5, gestionnaire4)
+                        isPrefere: true), adresse5, gestionnaire4)
 
         musee6 = museeService.insertOrUpdateMusee(
                 new Musee(nom: "MUSEE DE L'HISTOIRE DE LA MEDECINE DE TOULOUSE",
@@ -125,7 +125,7 @@ class JeuTestService {
                         telephone: "05 61 77 82 72",
                         accesMetro: "Saint-Cyprien-République, Esquirol (A)",
                         accesBus: "2, 10, 12, 14, 78, 80",
-                        isPrefere: false), adresse6, gestionnaire4)
+                        isPrefere: true), adresse6, gestionnaire4)
         musee10 = museeService.insertOrUpdateMusee(
                 new Musee(nom: "MUSEE DU VIEUX TOULOUSE",
                         horairesOuverture: "Ouvert tous les jours du 2 mai au 31 octobre de 14h00 à 18h00.Fermé le dimanche et jours fériés.",
