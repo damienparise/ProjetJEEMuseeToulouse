@@ -48,10 +48,18 @@ class MuseeService {
 //        musee
 //    }
 
-    Musee addFavoris(long id){
-        Musee musee = Musee.findById(id)
+    List<Musee> addFavoris(String id){
+        Musee musee = Musee.findById(Long.parseLong(id))
         musee.isPrefere = true
         musee.save(flush: true)
-        musee
+        Musee.findAll()
+    }
+
+
+    List<Musee> removeFavoris(String id){
+        Musee musee = Musee.findById(Long.parseLong(id))
+        musee.isPrefere = false
+        musee.save(flush: true)
+        Musee.findAll()
     }
 }

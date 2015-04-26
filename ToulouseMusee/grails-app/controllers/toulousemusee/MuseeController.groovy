@@ -11,10 +11,16 @@ class MuseeController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def doAddFavoris(long museeId){
-        def musee = museeService.addFavoris(museeId)
-        render (view: 'index', model: [museeInstanceList: musee, museeInstanceCount: museeList.size()])
+    def doAddFavoris(){
+        def musees = museeService.addFavoris(params.id)
+        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: musees.size()])
     }
+
+    def doRemoveFavoris(){
+        def musees = museeService.removeFavoris(params.id)
+        render (view: 'index', model: [museeInstanceList: musees, museeInstanceCount: musees.size()])
+    }
+
     def doSearchMusees(){
         def museeList = museeService.searchMusees(params.nom,params.codepostal, params.nomrue)
         render(view: 'index', model: [museeInstanceList: museeList, museeInstanceCount: museeList.size()])
