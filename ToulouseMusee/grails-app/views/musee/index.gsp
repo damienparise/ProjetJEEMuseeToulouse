@@ -105,7 +105,9 @@
             </tr>
         </g:each>
         </tbody>
-    </table></div>
+    </table>
+</div>
+
 
 <div class="pagination">
     <g:paginate max="5" total="${museeInstanceCount ?: 0}" name=""/>
@@ -120,23 +122,23 @@
             <g:sortableColumn property="nom" title="${message(code: 'musee.nom.label', default: 'Nom')}"/>
             <g:sortableColumn property="favoris" title="${message(code: 'musee.nom.label', default: 'Favoris')}"/>
         </tr>
-        </thead>
-        <tbody>
-        <g:each in="${museeInstanceList}" status="i" var="museeInstance">
-            <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                <g:if test="${museeInstance.isPrefere == true}">
-                    <td>${fieldValue(bean: museeInstance, field: "nom")}</td>
+        </thead><tbody>
+    <g:each in="${Musee.findAll()}" status="i" var="museeInstance">
+        <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+            <g:if test="${museeInstance.isPrefere == true}">
+                <td>${fieldValue(bean: museeInstance, field: "nom")}</td>
 
-                    <td><g:form id="${museeInstance.id}">
-                        <g:actionSubmit action="doRemoveFavoris" value="Supprimer &#10 de ma liste de musée"/>
-                        <g:actionSubmit action="doDemandeVisite" value="Effectuer &#10 une demande de visite"/>
-                    </g:form></td>
-                </g:if>
+                <td><g:form id="${museeInstance.id}">
+                    <g:actionSubmit action="doRemoveFavoris" value="Supprimer &#10 de ma liste de musée"/>
+                </g:form></td>
+                <td><g:form controller="demandeVisiteMusee">
+                    <g:actionSubmit action="doDemandeVisite" value="Effectuer &#10 une demande de visite"/>
+                </g:form></td>
+            </g:if>
 
-            </tr>
-        </g:each>
-        </tbody>
-
+        </tr>
+    </g:each>
+    </tbody>
     </table>
 </div>
 
